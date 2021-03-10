@@ -12,7 +12,7 @@ int i,j,k=0;
 
 int _Input(void);// Input Function
 
-void binarySearch(int target,int length,int position);
+int binarySearch(int target,int right,int left);
 
 
 int main()
@@ -43,7 +43,7 @@ int _Input()
 
 }
 
-void binarySearch(int target,int right,int left)
+int binarySearch(int target,int right,int left)
 {
 	if(left==right)//adhoc()
 	{
@@ -71,6 +71,7 @@ void binarySearch(int target,int right,int left)
 	}
 	
 }
+
 
 
 
