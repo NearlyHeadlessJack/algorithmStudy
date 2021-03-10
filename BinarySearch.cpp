@@ -1,5 +1,5 @@
 /*
-BinarySearchExample
+BinarySearchExampleWithRecursion
 by N.H.J.
 2021.3.10
 */
@@ -8,18 +8,17 @@ by N.H.J.
 int array[100];// Input array
 int numOfNumbers=0;
 int target;
-
 int i,j,k=0;
 
 int _Input(void);// Input Function
 
-int binarySearch(int target,int length,int position);
+void binarySearch(int target,int length,int position);
 
 
 int main()
 {
 	_Input();
-	int a=binarySearch(target,numOfArrays-1,0)
+	int a=binarySearch(target,numOfArrays-1,0);
 	if(a==-1)
 		cout<<"No target found!"<endl;
 	else
@@ -44,36 +43,34 @@ int _Input()
 
 }
 
-int binarySearch(int target,int right,int left)
+void binarySearch(int target,int right,int left)
 {
 	if(left==right)//adhoc()
 	{
 		if(array[left]==target)
 			return left;
+			
 		else
 			return -1;
+			
 	}
 	else
 	{
 		int mid=left+(right-left)/2;//To avoid overflow
 		if(array[mid]==target)
-			return mid;
+			a=mid;
 		else if(array[mid]<target)
 		{
-			left=mid+1;
-			binarySearch(target,right,left);
+			return binarySearch(target,right,mid+1);
 		}
 		else if(array[mid]>target)
 		{
-			right=mid-1;
-			binarySearch(target,right,left);
+			return binarySearch(target,mid-1,left);
 		}
 
 	}
 	
-
 }
-
 
 
 
