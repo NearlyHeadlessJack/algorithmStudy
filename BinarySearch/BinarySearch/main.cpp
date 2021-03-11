@@ -2,9 +2,6 @@
 BinarySearchExampleWithRecursion
 by N.H.J.
 2021.3.10
-
-
-
 */
 #include <iostream>
 using namespace std;
