@@ -1,4 +1,3 @@
-//#include <malloc.h>
 #include <stdlib.h>
 #include "string.h"
 #include<stdio.h>
@@ -36,10 +35,11 @@ int main()
 {
     _Input();
     Mergesort(tarray,numOfNumbers);
+    printf("The sequence from small to large is:\n");
     for(i=0;i<=numOfNumbers-1;i++)
     {
         printf("%d\n",tarray[i]);
-        // cout<<tarray[i]<<endl;
+    
     }
     return 0;
 
@@ -47,11 +47,11 @@ int main()
 int _Input()
 {
     printf("Please input the number of numbers:\n");
-    // cout<<"Please input the number of numbers:"<<endl;
+    
     scanf("%d",&numOfNumbers);
-    // cin>>numOfNumbers;
+ 
     printf("Please input the array:\n");
-    // cout<<"Please input the array:"<<endl;
+   
     for(i=0;i<=numOfNumbers-1;i++)
     {
         scanf("%d",&tarray[i]);
