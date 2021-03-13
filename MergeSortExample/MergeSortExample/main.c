@@ -3,7 +3,7 @@
 #include "string.h"
 #include<stdio.h>
 
-void mergesort(int A[],int n);//合并排序的递归主体
+void Mergesort(int A[],int n);//合并排序的递归主体
 int tarray[100];// Input array
  
 void merge(int A[],int L[],int R[],int l,int r)  //两个有序序列L、R合并为A，l,r分别为L,R的长度
@@ -35,7 +35,7 @@ int _Input(void);// Input Function
 int main()
 {
     _Input();
-    mergesort(tarray,numOfNumbers);
+    Mergesort(tarray,numOfNumbers);
     for(i=0;i<=strlen(tarray);i++)
     {
         printf("%d\n",tarray[i]);
@@ -60,7 +60,7 @@ int _Input()
 
     return 0;
 }
-void mergesort(int A[],int n)
+void Mergesort(int A[],int n)
 {
     void merge(int A[], int L[], int R[], int l, int r);  //声明merge函数
     if(n>1)    //多于一个元素才需要排序
@@ -73,8 +73,8 @@ void mergesort(int A[],int n)
         for(int j=mid;j<n;j++)
             right[j-mid]=A[j];  //建立临时数组存储右半部分序列
  
-        mergesort(left,mid);    //调用自身对左半部分进行合并排序
-        mergesort(right,n-mid); //调用自身对右半部分进行合并排序
+        Mergesort(left,mid);    //调用自身对左半部分进行合并排序
+        Mergesort(right,n-mid); //调用自身对右半部分进行合并排序
         merge(A,left,right,mid,n-mid);   //两个有序序列的合并操作，封装为函数
         free(left);
         free(right);
