@@ -36,7 +36,7 @@ int main()
 {
     _Input();
     Mergesort(tarray,numOfNumbers);
-    for(i=0;i<=strlen(tarray);i++)
+    for(i=0;i<=numOfNumbers-1;i++)
     {
         printf("%d\n",tarray[i]);
         // cout<<tarray[i]<<endl;
