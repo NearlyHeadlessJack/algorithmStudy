@@ -5,6 +5,7 @@ by N.H.J.
 */
 extern "C"{
 #include<iostream>
+#include<stdio.h>
 #include<string.h>
 using namespace std;
 
@@ -76,6 +77,7 @@ int _Input()
 
     return 0;
 }
+
 
 int mergeSort(int the_arrary[])
 {
