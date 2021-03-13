@@ -53,7 +53,7 @@ int main()
 {
     _Input();
     mergeSort(tarray,0,strlen(tarray)-1);
-    for(i=0;i<=strlen(tarray);i++)
+    for(i=0;i<=numOfNumbers-1;i++)
     {
         printf("%d\n",tarray[i]);
         // cout<<tarray[i]<<endl;
