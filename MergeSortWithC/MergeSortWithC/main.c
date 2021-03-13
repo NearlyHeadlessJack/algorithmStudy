@@ -16,9 +16,9 @@ int i,j,k=0;
 
 int _Input(void);// Input Function
 
-int mergeSort(int []);
+int mergeSort(int [],int,int);
 
-int merge(int[],int[],int[]);
+
 // int strlength(int a[])
 // {
 //     int t=0;
@@ -52,7 +52,7 @@ int merge(int[],int[],int[]);
 int main()
 {
     _Input();
-    mergeSort(tarray);
+    mergeSort(tarray,0,strlen(tarray)-1);
     for(i=0;i<=strlen(tarray);i++)
     {
         printf("%d\n",tarray[i]);
@@ -84,70 +84,74 @@ int _Input()
 }
 
 
-int mergeSort(int the_arrary[])
+int mergeSort(int the_arrary[],int begin,int end)
 {
-    if (strlen(the_arrary)==1)
+    int merge(int[],int,int);
+    if (begin==end)
         return 0;
     else
     {
-        int temp_arrary_left [100];
-        int temp_arrary_right [100];
-        int length=strlen(the_arrary);
         
-        strncpy(temp_arrary_left,the_arrary,length-1);
-        strcpy(temp_arrary_right,the_arrary+length);
+        int mid=(end-begin)/2;
+
+        // strncpy(temp_arrary_left,the_arrary,length/2-1);
+        // strcpy(temp_arrary_right,the_arrary+length/2);
 
         
 
         
-        mergeSort(temp_arrary_left);
-        mergeSort(temp_arrary_right);
+        mergeSort(the_arrary,begin,mid);
+        mergeSort(the_arrary,mid+1,end);
 
         
-        merge(the_arrary,temp_arrary_left,temp_arrary_right);
+        merge(the_arrary,begin,end);
 return 0;
 
     }
 
     }
-int merge(int array_total[],int array_left[],int array_right[])
-{
-    int bound_left=strlen(array_left)-1;
-    int bound_right=strlen(array_right)-1;
 
-    while(array_left[i]<=bound_left&&array_right[j]<=bound_right)
+int merge(int the_arrary[],int begin,int end)
+{
+    int mid=(begin+end)/2-1;
+    int i=begin;
+    int k=mid+1;
+    int o=begin;
+    int array_total[end-begin+1];
+    while(i<=mid&&k<=end)
     {
-        if(array_left[i]<=array_right[j])
+        if(the_arrary[i]<=the_arrary[k])
         {
-            array_total[k]=array_left[i];
+            array_total[o]=the_arrary[i];
             i++;
-            k++;
+            o++;
         }
         else
         {
-            array_total[k]=array_right[j];
-            j++;
+            array_total[o]=the_arrary[k];
+            k++;
+            o++;
+        }
+    }
+    if(i>mid)
+    {
+        while(o<=end-begin+1)
+        {
+            array_total[o]=the_arrary[k];
+            o++;
             k++;
         }
     }
-    if(i>bound_left)
+    else if(k>end)
     {
-        while(k<=bound_right)
+        while(o<=end-begin+1)
         {
-            array_total[k]=array_right[j];
-            j++;
-            k++;
-        }
-    }
-    else if(j>bound_right)
-    {
-        while(k<=bound_left)
-        {
-            array_total[k]=array_right[i];
+            array_total[k]=the_arrary[i];
             i++;
             k++;
         }
     }
+    strcpy(the_arrary+begin,array_total);
     return 0;
 }
 
