@@ -52,7 +52,7 @@ int mergeSort(int [],int,int);
 int main()
 {
     _Input();
-    mergeSort(tarray,0,strlen(tarray)-1);
+    mergeSort(tarray,0,numOfNumbers-1);
     for(i=0;i<=numOfNumbers-1;i++)
     {
         printf("%d\n",tarray[i]);
