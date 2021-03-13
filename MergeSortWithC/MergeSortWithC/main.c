@@ -55,7 +55,8 @@ int main()
     mergeSort(tarray);
     for(i=0;i<=strlen(tarray);i++)
     {
-        cout<<tarray[i]<<endl;
+        printf("%d\n",tarray[i]);
+        // cout<<tarray[i]<<endl;
     }
     return 0;
 
@@ -67,12 +68,16 @@ int main()
 }
 int _Input()
 {
-    cout<<"Please input the number of numbers:"<<endl;
-    cin>>numOfNumbers;
-    cout<<"Please input the array:"<<endl;
+    printf("Please input the number of numbers:\n");
+    // cout<<"Please input the number of numbers:"<<endl;
+    scanf("%d",&numOfNumbers);
+    // cin>>numOfNumbers;
+    printf("Please input the array:\n");
+    // cout<<"Please input the array:"<<endl;
     for(i=0;i<=numOfNumbers-1;i++)
     {
-        cin>>tarray[i];
+        scanf("%d",&tarray[i]);
+        // cin>>tarray[i];
     }
 
     return 0;
@@ -88,7 +93,8 @@ int mergeSort(int the_arrary[])
         int temp_arrary_left [100];
         int temp_arrary_right [100];
         int length=strlen(the_arrary);
-        strncpy(the_arrary_left,the_arrary,length-1);
+        
+        strncpy(temp_arrary_left,the_arrary,length-1);
         strcpy(temp_arrary_right,the_arrary+length);
 
         
