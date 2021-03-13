@@ -3,7 +3,7 @@ MergeSort
 by N.H.J.
 2021.3.13
 */
-extern "C"{
+
 #include<iostream>
 #include<stdio.h>
 #include<string.h>
