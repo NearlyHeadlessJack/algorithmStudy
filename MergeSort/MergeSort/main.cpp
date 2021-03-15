@@ -16,9 +16,9 @@ int i,j,k=0;
 
 int _Input(void);// Input Function
 
-int mergeSort(int []);
+int mergeSort(int [],int);
 
-int merge(int[],int[],int[]);
+
 // int strlength(int a[])
 // {
 //     int t=0;
@@ -52,8 +52,8 @@ int merge(int[],int[],int[]);
 int main()
 {
     _Input();
-    mergeSort(tarray);
-    for(i=0;i<=strlen(tarray);i++)
+    mergeSort(tarray,numOfNumbers);
+    for(i=0;i<=numOfNumbers-1;i++)
     {
         cout<<tarray[i]<<endl;
     }
@@ -79,72 +79,66 @@ int _Input()
 }
 
 
-int mergeSort(int the_arrary[])
+int mergeSort(int the_arrary[],int length)
 {
-    if (strlen(the_arrary)==1)
-        return 0;
-    else
+    int merge(int[],int[],int[],int,int);
+    
+        
+    if (length>1)
     {
+        int mid=length/2;
         int temp_arrary_left [100];
         int temp_arrary_right [100];
-        int length=strlen(the_arrary);
-        strncpy(the_arrary_left,the_arrary,length-1);
-        strcpy(temp_arrary_right,the_arrary+length);
+        for(int i=0;i<mid;i++)
+            temp_arrary_left[i]=the_arrary[i];       //建立临时数组存储左半部分序列
+        for(int j=mid;j<length;j++)
+            temp_arrary_right[j-mid]=the_arrary[j];  //建立临时数组存储右半部分序列
 
         
 
         
-        mergeSort(temp_arrary_left);
-        mergeSort(temp_arrary_right);
+        mergeSort(temp_arrary_left,mid);
+        mergeSort(temp_arrary_right,length-mid);
 
         
-        merge(the_arrary,temp_arrary_left,temp_arrary_right);
-return 0;
+        merge(the_arrary,temp_arrary_left,temp_arrary_right,mid-1,length-mid-1);
 
-    }
 
-    }
-int merge(int array_total[],int array_left[],int array_right[])
-{
-    int bound_left=strlen(array_left)-1;
-    int bound_right=strlen(array_right)-1;
-
-    while(array_left[i]<=bound_left&&array_right[j]<=bound_right)
-    {
-        if(array_left[i]<=array_right[j])
-        {
-            array_total[k]=array_left[i];
-            i++;
-            k++;
-        }
-        else
-        {
-            array_total[k]=array_right[j];
-            j++;
-            k++;
-        }
-    }
-    if(i>bound_left)
-    {
-        while(k<=bound_right)
-        {
-            array_total[k]=array_right[j];
-            j++;
-            k++;
-        }
-    }
-    else if(j>bound_right)
-    {
-        while(k<=bound_left)
-        {
-            array_total[k]=array_right[i];
-            i++;
-            k++;
-        }
     }
     return 0;
 }
+    
+int merge(int array_total[],int array_left[],int array_right[],int bound_left,int bound_right)
+{
+    
+int i=0;
+int j=0;
+int k=0;
+
+    while(i<=bound_left&&j<=bound_right)
+    {
+        if(array_left[i]<=array_right[j])
+        {
+            array_total[k++]=array_left[i++];
+        }
+        else
+        {
+            array_total[k++]=array_right[j++];
+
+        }
+    }
+        while(j<=bound_right)
+        {
+            array_total[k++]=array_right[j++];
+        }
+
+        while(i<=bound_left)
+        {
+            array_total[k++]=array_left[i++];
+        }
+    return 0;
 }
+
 
 
 
