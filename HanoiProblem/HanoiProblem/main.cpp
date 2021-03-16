@@ -28,10 +28,8 @@ void move(int n,char A,char B,char C)
     }
     else
     {
-
         move(n - 1, A , C , B);
         cout<<++total<<". Move "<<n<<" from "<<A<<" to "<<C<<". "<<endl;
         move(n - 1 , B, A , C);
     }
-
 }
