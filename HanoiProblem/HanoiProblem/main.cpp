@@ -15,7 +15,7 @@ int main()
     cout<<"Please input the number of Hanois:"<<endl;
     cin>>n;
     move(n,'a','b','c');
-    cout<<"Total steps is "<<total<<endl;
+    cout<<total<<" steps in total."<<endl;
     system("pause");
     return 0;
 }
