@@ -18,7 +18,6 @@ int traceBack(int,int);
 
 int main()
 {
-
     cout<<"Please input the number of matrix:"<<endl;
     cin>>n;
     for(int i=1;i<=n;i++)
@@ -33,13 +32,9 @@ int main()
     {
         cout<<"The Sequence of multiplication is:"<<endl;
         traceBack(1,n);
-
     }
     return 88;
-
 }
-
-
 void matrixChain(void)
 {
     for(int i=0;i<=0;i++)
@@ -61,23 +56,13 @@ void matrixChain(void)
 int traceBack(int m,int n)
 {
     if(m==n)
-    {
-
         return 0;
-    }
     else
     {
         traceBack(m,s[m][n]);
-        
         traceBack(s[m][n]+1,n);
         if(m!=n)
             cout<<"A["<<m<<":"<<n<<"]"<<endl;
-
         return 0;
-
     }
-
 }
-
-
-
