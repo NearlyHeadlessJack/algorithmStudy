@@ -4,7 +4,7 @@ by N.H.J.
 2021.3.23
 */
 #include<iostream>
-
+using namespace std;
 int n;
 int p[],s[],l[],b[];
 
